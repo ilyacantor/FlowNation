@@ -1,0 +1,213 @@
+Apply the following code updates exactly. Do not change copy or add new visuals.
+
+1) Create component: /src/components/Hero.jsx
+--------------------------------------------
+import React from "react";
+
+export default function Hero({ image, height = "min-h-[70vh]", children }) {
+  return (
+    <section
+      className={`relative w-full ${height} overflow-hidden rounded-none`}
+      style={{
+        backgroundImage: `url('${image}')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat"
+      }}
+    >
+      <div className="absolute inset-0 bg-black/45" />
+      <div className="relative z-10">{children}</div>
+    </section>
+  );
+}
+
+2) Header: /src/components/Header.jsx
+-------------------------------------
+import { Link, useLocation } from "react-router-dom";
+
+const links = [
+  { to: "/", label: "FlowNation" },
+  { to: "/guest/roadie", label: "Guest Persona" },
+  { to: "/dashboard", label: "Dashboard" },
+  { to: "/community", label: "Community" },
+  { to: "/profile", label: "Profile" },
+];
+
+export default function Header() {
+  const { pathname } = useLocation();
+  return (
+    <header className="sticky top-0 z-50 bg-black/60 backdrop-blur-md border-b border-white/10">
+      <nav className="max-w-6xl mx-auto px-4 h-14 flex items-center gap-5">
+        {links.map(l => (
+          <Link
+            key={l.to}
+            to={l.to}
+            className={`text-sm ${pathname===l.to ? "text-white font-semibold" : "text-white/80 hover:text-white"}`}
+          >
+            {l.label}
+          </Link>
+        ))}
+      </nav>
+    </header>
+  );
+}
+
+3) Footer: /src/components/Footer.jsx
+-------------------------------------
+export default function Footer() {
+  return (
+    <footer className="border-t border-white/10 bg-black/60">
+      <div className="max-w-6xl mx-auto px-4 py-10 text-center">
+        {/* DO NOT CHANGE COPY */}
+        <p className="text-white/90">Free forever for athletes · No ads · No noise · Just your flow.</p>
+        <p className="mt-2 text-white/60">Powered by athletes. Built for the endurance community.</p>
+      </div>
+    </footer>
+  );
+}
+
+4) Home page: /src/pages/Home.jsx
+---------------------------------
+import { Link } from "react-router-dom";
+import Hero from "../components/Hero";
+
+export default function Home() {
+  return (
+    <main className="min-h-screen bg-[#0B0B0D] text-white">
+      <Hero image="/assets/guest-landing.png" height="min-h-[86vh]">
+        <div className="max-w-5xl mx-auto px-6 pt-28 text-center">
+          {/* DO NOT CHANGE COPY */}
+          <h1 className="text-4xl md:text-6xl font-bold">Your world of endurance, <span className="text-cyan-300">personalized.</span></h1>
+          <p className="mt-4 text-white/85">Choose your sport(s) and watch your FlowNation come alive.</p>
+
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            {["roadie","graveler","mtbear","downhiller","triathlete","ebiker","runner","all"].map(p => (
+              <Link key={p} to={`/guest/${p}`} className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15">
+                {p}
+              </Link>
+            ))}
+          </div>
+
+          <p className="mt-10 text-white/80">Free forever for athletes · No ads · No noise · Just your flow.</p>
+        </div>
+      </Hero>
+    </main>
+  );
+}
+
+5) Persona page: /src/pages/Persona.jsx
+---------------------------------------
+import { useParams } from "react-router-dom";
+import Hero from "../components/Hero";
+
+export default function Persona() {
+  const { persona = "roadie" } = useParams();
+  return (
+    <main className="min-h-screen bg-[#0B0B0D] text-white">
+      <Hero image="/assets/persona-demo.png" height="min-h-[60vh]">
+        <div className="max-w-6xl mx-auto px-6 pt-24">
+          <h2 className="text-3xl md:text-5xl font-bold">Welcome to Your FlowNation Experience, {persona}.</h2>
+          <p className="mt-3 text-white/85">Discover events, buddies, gear, and integrations tailored to you.</p>
+        </div>
+      </Hero>
+
+      <Hero image="/assets/event-discovery.png" height="min-h-[50vh]">
+        <div className="max-w-6xl mx-auto px-6 py-10">
+          <h3 className="text-2xl font-semibold">Event & Map Discovery</h3>
+        </div>
+      </Hero>
+    </main>
+  );
+}
+
+6) Dashboard page: /src/pages/Dashboard.jsx
+-------------------------------------------
+import Hero from "../components/Hero";
+
+export default function Dashboard() {
+  return (
+    <main className="min-h-screen bg-[#0B0B0D] text-white">
+      <Hero image="/assets/your-flownation.png" height="min-h-[42vh]">
+        <div className="max-w-6xl mx-auto px-6 pt-20">
+          <h2 className="text-3xl md:text-5xl font-bold">Your FlowNation</h2>
+          <p className="mt-2 text-white/85">Today’s summary, events, buddies, and insights at a glance.</p>
+        </div>
+      </Hero>
+
+      <Hero image="/assets/dashboard-insights.png" height="min-h-[55vh]">
+        <div className="max-w-6xl mx-auto px-6 py-10">
+          <h3 className="text-2xl font-semibold">Dashboard & Insights</h3>
+        </div>
+      </Hero>
+    </main>
+  );
+}
+
+7) Community page: /src/pages/Community.jsx
+-------------------------------------------
+import Hero from "../components/Hero";
+
+export default function Community() {
+  return (
+    <main className="min-h-screen bg-[#0B0B0D] text-white">
+      <Hero image="/assets/buddy-community.png" height="min-h-[50vh]">
+        <div className="max-w-6xl mx-auto px-6 pt-24">
+          <h2 className="text-3xl md:text-5xl font-bold">Buddy Finder & Community</h2>
+        </div>
+      </Hero>
+
+      <Hero image="/assets/community-proof.png" height="min-h-[50vh]">
+        <div className="max-w-6xl mx-auto px-6 py-10">
+          <h3 className="text-2xl font-semibold">Community Proof</h3>
+        </div>
+      </Hero>
+    </main>
+  );
+}
+
+8) Profile page: /src/pages/Profile.jsx
+---------------------------------------
+import Hero from "../components/Hero";
+
+export default function Profile() {
+  return (
+    <main className="min-h-screen bg-[#0B0B0D] text-white">
+      <Hero image="/assets/profile-settings.png" height="min-h-[45vh]">
+        <div className="max-w-6xl mx-auto px-6 pt-24">
+          <h2 className="text-3xl md:text-5xl font-bold">Profile & Settings</h2>
+        </div>
+      </Hero>
+    </main>
+  );
+}
+
+9) Router shell: /src/App.jsx
+-----------------------------
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Persona from "./pages/Persona";
+import Dashboard from "./pages/Dashboard";
+import Community from "./pages/Community";
+import Profile from "./pages/Profile";
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/guest/:persona" element={<Persona />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/community" element={<Community />} />
+        <Route path="/profile" element={<Profile />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
+  );
+}
+
+10) Global CSS tweak: /src/index.css (append)
+---------------------------------------------
+.hero{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important}

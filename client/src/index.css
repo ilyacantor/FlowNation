@@ -141,3 +141,5 @@
     @apply absolute inset-0 bg-black/20;
   }
 }
+
+.hero{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important}
