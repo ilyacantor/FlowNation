@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/layout/header";
-import Footer from "./components/layout/footer";
-import Home from "./pages/landing";
-import Persona from "./pages/persona";
-import Dashboard from "./pages/dashboard";
-import Community from "./pages/community";
-import Profile from "./pages/profile";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Persona from "./pages/Persona";
+import Dashboard from "./pages/Dashboard";
+import Community from "./pages/Community";
+import Profile from "./pages/Profile";
 
 export default function App() {
   return (
