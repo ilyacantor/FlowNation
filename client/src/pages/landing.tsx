@@ -3,7 +3,7 @@ import Hero from "../components/Hero";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0B0B0D] text-white">
+    <>
       <Hero image="guest-landing.png">
         <div className="max-w-5xl mx-auto px-6 pt-28 text-center">
           <h1 className="text-4xl md:text-6xl font-bold">Your world of endurance, <span className="text-cyan-300">personalized.</span></h1>
@@ -20,6 +20,6 @@ export default function Home() {
           <p className="mt-10 text-white/80">Free forever for athletes · No ads · No noise · Just your flow.</p>
         </div>
       </Hero>
-    </main>
+    </>
   );
 }
