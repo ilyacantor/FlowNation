@@ -3,13 +3,13 @@ import Hero from "../components/Hero";
 export default function Community() {
   return (
     <main className="min-h-screen bg-[#0B0B0D] text-white">
-      <Hero image="/assets/buddy-community.png" height="min-h-[50vh]">
+      <Hero image="buddy-community.png" height="min-h-[50vh]">
         <div className="max-w-6xl mx-auto px-6 pt-24">
           <h2 className="text-3xl md:text-5xl font-bold">Buddy Finder & Community</h2>
         </div>
       </Hero>
 
-      <Hero image="/assets/community-proof.png" height="min-h-[50vh]">
+      <Hero image="community-proof.png" height="min-h-[50vh]">
         <div className="max-w-6xl mx-auto px-6 py-10">
           <h3 className="text-2xl font-semibold">Community Proof</h3>
         </div>
