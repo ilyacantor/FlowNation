@@ -1,9 +1,9 @@
-export default function Hero({ image, height = "min-h-[70vh]", children }: { image: string; height?: string; children: React.ReactNode }) {
+export default function Hero({ image, children }: { image: string; children: React.ReactNode }) {
   const resolvedImage = new URL(`../assets/${image}`, import.meta.url).href;
 
   return (
     <section
-      className={`relative w-full ${height} overflow-hidden flex items-center justify-center text-center`}
+      className={`relative w-full h-[100vh] flex items-center justify-center text-center overflow-hidden`}
       style={{
         backgroundImage: `url(${resolvedImage})`,
         backgroundSize: "cover",

@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#0B0B0D] text-white">
-      <Hero image="guest-landing.png" height="min-h-[86vh]">
+      <Hero image="guest-landing.png">
         <div className="max-w-5xl mx-auto px-6 pt-28 text-center">
           <h1 className="text-4xl md:text-6xl font-bold">Your world of endurance, <span className="text-cyan-300">personalized.</span></h1>
           <p className="mt-4 text-white/85">Choose your sport(s) and watch your FlowNation come alive.</p>

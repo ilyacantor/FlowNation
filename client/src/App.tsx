@@ -10,15 +10,19 @@ import Profile from "./pages/profile";
 export default function App() {
   return (
     <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/guest/:persona" element={<Persona />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/community" element={<Community />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
-      <Footer />
+      <div className="flex flex-col h-screen">
+        <Header />
+        <div className="flex-grow overflow-y-auto">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/guest/:persona" element={<Persona />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/community" element={<Community />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
