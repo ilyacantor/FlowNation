@@ -1,5 +1,5 @@
-import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const personaData = {
   entrepreneur: {
@@ -37,7 +37,14 @@ const personaBenefits = [
 
 const Persona = () => {
   const { persona } = useParams<{ persona: string }>();
+  const navigate = useNavigate();
   const [selectedPersona, setSelectedPersona] = useState(persona || "entrepreneur");
+
+  useEffect(() => {
+    if (persona) {
+      setSelectedPersona(persona);
+    }
+  }, [persona]);
 
   const currentPersona = personaData[selectedPersona as keyof typeof personaData] || personaData.entrepreneur;
 
@@ -47,6 +54,10 @@ const Persona = () => {
     { key: "designer", label: "Designer" },
     { key: "investor", label: "Investor" },
   ];
+
+  const handlePersonaChange = (personaKey: string) => {
+    navigate(`/guest/${personaKey}`);
+  };
 
   return (
     <div>
@@ -80,7 +91,7 @@ const Persona = () => {
                 <button
                   key={p.key}
                   data-testid={`button-persona-${p.key}`}
-                  onClick={() => setSelectedPersona(p.key)}
+                  onClick={() => handlePersonaChange(p.key)}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                     selectedPersona === p.key
                       ? "bg-primary text-primary-foreground"
