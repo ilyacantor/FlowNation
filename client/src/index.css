@@ -145,18 +145,17 @@
 .hero{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important}
 
 html,body,#root{
+  height:100%;
+  width:100%;
   margin:0;
   padding:0;
-  height:100%;
+  background:#0B0B0D;
   overflow:hidden;
-  background-color:#0B0B0D;
 }
 main{
-  height:calc(100vh - 7rem);
-  overflow-y:auto;
-  scroll-behavior:smooth;
-  -webkit-overflow-scrolling:touch;
+  height:100%;
+  width:100%;
 }
-header,footer{
-  flex-shrink:0;
+section{
+  scroll-snap-align:start;
 }
