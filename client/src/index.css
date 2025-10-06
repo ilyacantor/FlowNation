@@ -143,3 +143,8 @@
 }
 
 .hero{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important}
+
+html,body,#root{margin:0;padding:0;overflow-x:hidden;background-color:#0B0B0D;}
+main{position:relative;z-index:1;}
+section{position:relative;z-index:1;}
+.hero>div{position:relative;z-index:2;}
