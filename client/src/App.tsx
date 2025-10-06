@@ -10,9 +10,9 @@ import Profile from "./pages/profile";
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="relative h-screen w-screen overflow-hidden flex flex-col">
+      <div className="relative h-screen w-screen overflow-hidden">
         <Header />
-        <main className="flex-grow overflow-y-auto snap-y snap-mandatory scroll-smooth">
+        <main className="h-full w-full overflow-y-auto snap-y snap-mandatory scroll-smooth">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/guest/:persona" element={<Persona />} />
