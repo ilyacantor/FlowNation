@@ -144,12 +144,20 @@
 
 .hero{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important}
 
-html,body,#root{
-  margin:0;
-  padding:0;
-  min-height:100%;
-  background:#0B0B0D;
-  overflow-x:hidden;
+html,body,#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: #0B0B0D;
+  overflow-x: hidden;
 }
-main{display:block;overflow-x:hidden;}
-section{position:relative;}
+
+header, footer {
+  position: relative;
+  z-index: 50;
+}
+
+main {
+  display: block;
+  overflow-x: hidden;
+}
