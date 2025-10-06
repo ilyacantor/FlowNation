@@ -1,0 +1,20 @@
+# Assets Directory
+
+This directory is reserved for PNG background images exported from Visily.
+
+## Expected Asset Files:
+
+- `landing-hero.png` - Landing page hero background (1920×800px recommended)
+- `persona-hero.png` - Persona page hero background (1920×600px recommended) 
+- `dashboard-hero.png` - Dashboard header background (1920×400px recommended)
+- `community-hero.png` - Community header background (1920×500px recommended)
+- `profile-hero.png` - Profile header background (1920×400px recommended)
+
+## Usage:
+
+Assets will be referenced in components using standard public path:
+```jsx
+<div 
+  className="hero-section"
+  style={{ backgroundImage: 'url(/assets/landing-hero.png)' }}
+>
