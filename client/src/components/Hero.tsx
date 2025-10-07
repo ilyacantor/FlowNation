@@ -1,8 +1,8 @@
 import React from "react";
 
 export default function Hero({ image, children }) {
-  // Correct public path reference for Replit/Vite
-  const resolvedImage = `/assets/${image}`;
+  // Dynamically resolve full public URL (works in Replit + Netlify)
+  const resolvedImage = `${window.location.origin}/assets/${image}`;
 
   return (
     <section
@@ -11,11 +11,12 @@ export default function Hero({ image, children }) {
         backgroundImage: `url(${resolvedImage})`,
         backgroundRepeat: "no-repeat",
         backgroundAttachment: "scroll",
+        backgroundPosition: "center top",
       }}
     >
       <div className="absolute inset-0 bg-black/40" />
       <div className="relative z-10 px-6 md:px-12 text-center max-w-4xl space-y-6">
-        {children}
+        {children || <p className="text-white">Hero loaded from {resolvedImage}</p>}
       </div>
     </section>
   );
