@@ -47,3 +47,28 @@ The application is configured to use PNG background images in full-width hero se
   <div className="hero-overlay" />
   {/* Content */}
 </div>
+
+---
+
+## 🚀 Deployment & CI/CD (October 2025)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/<YOUR-NETLIFY-BADGE-ID>/deploy-status)](https://app.netlify.com/sites/<YOUR-NETLIFY-SITE-NAME>/deploys)
+
+**Deployment status:** ✅ Auto-deploys from the `main` branch via GitHub → Netlify.
+
+**Live site:**  
+👉 [https://<YOUR-NETLIFY-SITE-NAME>.netlify.app](https://<YOUR-NETLIFY-SITE-NAME>.netlify.app)
+
+---
+
+### 🧩 Environment Variables
+
+All real keys are stored in **Netlify → Site Settings → Environment Variables**.  
+`.env.example` (in the repo root) lists the variable names to keep builds consistent.
+
+```bash
+VITE_API_BASE_URL=
+VITE_FAUNA_SECRET=
+VITE_STRAVA_CLIENT_ID=
+VITE_STRAVA_CLIENT_SECRET=
+VITE_MAPBOX_TOKEN=
