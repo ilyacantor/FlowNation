@@ -1,7 +1,19 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 
-export default function HeroSection({ hero }) {
+interface HeroSectionProps {
+  hero: {
+    title: string;
+    subtitle: string;
+    button: {
+      label: string;
+      link: string;
+    };
+    image: string;
+  };
+}
+
+export default function HeroSection({ hero }: HeroSectionProps) {
   return (
     <section
       className="relative w-full bg-cover bg-center flex flex-col items-center justify-center text-center text-white py-32 md:py-48"

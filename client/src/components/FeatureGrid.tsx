@@ -2,7 +2,16 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import * as Icons from "lucide-react";
 
-export default function FeatureGrid({ features }) {
+interface FeatureGridProps {
+  features: Array<{
+    title: string;
+    desc: string;
+    icon: string;
+    link: string;
+  }>;
+}
+
+export default function FeatureGrid({ features }: FeatureGridProps) {
   return (
     <section className="py-20 bg-neutral-900 text-white">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
