@@ -1,5 +1,6 @@
 export default function Hero({ image, children }: { image: string; children: React.ReactNode }) {
   const resolvedImage = new URL(`../assets/${image}`, import.meta.url).href;
+  console.log('Hero component mounted with image:', image);
   return (
     <section
       className="relative w-full bg-cover bg-center flex flex-col items-center justify-center overflow-visible pt-28 pb-32 md:pt-36 md:pb-44"
