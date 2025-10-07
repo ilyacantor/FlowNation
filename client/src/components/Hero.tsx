@@ -11,10 +11,13 @@ export default function Hero({ image, children }) {
         backgroundImage: `url(${resolvedImage})`,
         backgroundSize: "contain",
         backgroundPosition: "top center",
-        aspectRatio: "1440 / 2412",  // match Visily export
+        aspectRatio: "1440 / 2412", // match Visily export
       }}
     >
-      <div className="absolute inset-0 bg-black/40" />
+      <div
+        className="absolute bg-black/40"
+        style={{ left: "-588px", top: "460px", right: 0, bottom: 0 }}
+      />
       <div className="relative z-10 px-6 md:px-12 text-center max-w-5xl space-y-8 pt-[18vh] pb-[12vh]">
         {children}
       </div>
