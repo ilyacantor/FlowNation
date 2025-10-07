@@ -16,7 +16,7 @@ export default function FeatureGrid({ features }: FeatureGridProps) {
     <section className="py-20 bg-neutral-900 text-white">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {features.map((f, i) => {
-          const Icon = Icons[f.icon] || Icons.Bike;
+          const Icon = (Icons as any)[f.icon] || Icons.Bike;
           return (
             <Card key={i} className="bg-neutral-800 hover:bg-neutral-700 transition">
               <CardContent className="p-6 text-center space-y-4">
