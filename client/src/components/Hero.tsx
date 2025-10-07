@@ -3,11 +3,15 @@ export default function Hero({ image, children }: { image: string; children: Rea
   console.log('Hero component mounted with image:', image);
   return (
     <section
-      className="relative w-full bg-cover bg-center flex flex-col items-center justify-center overflow-visible pt-28 pb-32 md:pt-36 md:pb-44"
-      style={{ backgroundImage: `url(${resolvedImage})` }}
+      className="relative w-full flex flex-col items-center justify-center bg-cover bg-center overflow-hidden py-32 md:py-48"
+      style={{
+        backgroundImage: `url(${resolvedImage})`,
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "scroll",
+      }}
     >
       <div className="absolute inset-0 bg-black/45" />
-      <div className="relative z-10 w-full px-6 max-w-6xl text-center">{children}</div>
+      <div className="relative z-10 px-6 md:px-12 text-center max-w-4xl space-y-6">{children}</div>
     </section>
   );
 }
