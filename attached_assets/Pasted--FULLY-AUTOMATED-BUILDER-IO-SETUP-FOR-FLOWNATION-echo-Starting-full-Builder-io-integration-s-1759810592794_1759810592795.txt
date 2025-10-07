@@ -1,0 +1,101 @@
+# FULLY AUTOMATED BUILDER.IO SETUP FOR FLOWNATION
+
+echo "🚀 Starting full Builder.io integration setup..."
+
+# 1️⃣ Install dependencies
+npm install @builder.io/react react-router-dom lucide-react
+
+# 2️⃣ Create folder structure
+mkdir -p src/pages builder src/components
+
+# 3️⃣ Add universal Builder landing page
+cat <<'EOF' > src/pages/Landing.jsx
+import React, { useEffect, useState } from "react";
+import { builder, BuilderComponent } from "@builder.io/react";
+
+builder.init(import.meta.env.VITE_BUILDER_API_KEY || "public-placeholderkey");
+
+export default function Landing() {
+  const [content, setContent] = useState(null);
+
+  useEffect(() => {
+    builder
+      .get("page", { url: window.location.pathname })
+      .promise()
+      .then(setContent);
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-black text-white">
+      <BuilderComponent model="page" content={content} />
+    </div>
+  );
+}
+EOF
+
+# 4️⃣ Add Router wrapper
+cat <<'EOF' > src/App.jsx
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Landing from "./pages/Landing";
+import "../builder/registerComponents";
+
+export default function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/*" element={<Landing />} />
+      </Routes>
+    </Router>
+  );
+}
+EOF
+
+# 5️⃣ Register placeholder Builder components
+cat <<'EOF' > builder/registerComponents.js
+import { Builder } from "@builder.io/react";
+import React from "react";
+
+export const Placeholder = ({ text }) => (
+  <div
+    style={{
+      padding: "40px",
+      background: "#0b0b0d",
+      border: "1px solid #333",
+      color: "#fff",
+      borderRadius: "8px",
+      textAlign: "center",
+    }}
+  >
+    {text || "FlowNation editable section"}
+  </div>
+);
+
+Builder.registerComponent(Placeholder, {
+  name: "Placeholder",
+  inputs: [{ name: "text", type: "string", defaultValue: "Editable area" }],
+});
+EOF
+
+# 6️⃣ Auto-create environment key if not set
+if ! grep -q "VITE_BUILDER_API_KEY" .env 2>/dev/null; then
+  KEY="public-placeholderkey-$(openssl rand -hex 6)"
+  echo "VITE_BUILDER_API_KEY=$KEY" >> .env
+  echo "🧩 Created temporary Builder API key placeholder ($KEY)"
+fi
+
+# 7️⃣ Patch Vite config if missing
+if [ ! -f vite.config.js ]; then
+  cat <<'EOF' > vite.config.js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+export default defineConfig({
+  plugins: [react()],
+  server: { port: 3000, host: true },
+});
+EOF
+fi
+
+echo "✅ FlowNation Builder.io environment fully configured."
+echo "👉 Run project now."
+echo "If connected to a real Builder.io space, replace the placeholder key with your real public key in the .env file automatically."
