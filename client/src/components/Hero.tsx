@@ -2,7 +2,7 @@ export default function Hero({ image, children }: { image: string; children: Rea
   const resolvedImage = new URL(`../assets/${image}`, import.meta.url).href;
   return (
     <section
-      className="relative w-full bg-cover bg-center py-24 md:py-40 flex flex-col items-center justify-center overflow-hidden"
+      className="relative w-full bg-cover bg-center py-32 md:py-48 flex flex-col items-center justify-center overflow-visible"
       style={{ backgroundImage: `url(${resolvedImage})` }}
     >
       <div className="absolute inset-0 bg-black/45" />
