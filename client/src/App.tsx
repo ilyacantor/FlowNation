@@ -1,31 +1,28 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { Toaster } from "@/components/ui/toaster";
-import Index from "./pages/Index";
-import EventDiscovery from "./pages/EventDiscovery";
-import BuddyCommunity from "./pages/BuddyCommunity";
-import DashboardInsights from "./pages/DashboardInsights";
-import ProfileSettings from "./pages/ProfileSettings";
-import PersonaDemo from "./pages/PersonaDemo";
-import NotFound from "./pages/NotFound";
-
-const queryClient = new QueryClient();
+import Header from "./components/layout/header";
+import Footer from "./components/layout/footer";
+import Home from "./pages/landing";
+import Persona from "./pages/persona";
+import Dashboard from "./pages/dashboard";
+import Community from "./pages/community";
+import Profile from "./pages/profile";
 
 export default function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Toaster />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/discover" element={<EventDiscovery />} />
-          <Route path="/community" element={<BuddyCommunity />} />
-          <Route path="/dashboard" element={<DashboardInsights />} />
-          <Route path="/profile" element={<ProfileSettings />} />
-          <Route path="/persona" element={<PersonaDemo />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </QueryClientProvider>
+    <BrowserRouter>
+      <div className="flex flex-col min-h-screen bg-[#0B0B0D] text-white">
+        <Header />
+        <main className="flex-grow overflow-y-auto">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/guest/:persona" element={<Persona />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/community" element={<Community />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
