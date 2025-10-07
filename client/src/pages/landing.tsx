@@ -1,24 +1,34 @@
+// /src/pages/landing.jsx
 import React from "react";
-import { landingContent } from "../data/landingContent";
-import Header from "../components/layout/header";
-import Footer from "../components/layout/footer";
-import HeroSection from "../components/HeroSection";
-import FeatureGrid from "../components/FeatureGrid";
-import MetricsBand from "../components/MetricsBand";
-import BenefitsSection from "../components/BenefitsSection";
+import Hero from "../components/Hero";
 
 export default function Landing() {
-  const { hero, features, metrics, benefits } = landingContent;
   return (
-    <>
-      <Header />
-      <main className="flex flex-col min-h-screen bg-neutral-950">
-        <HeroSection hero={hero} />
-        <FeatureGrid features={features} />
-        <MetricsBand metrics={metrics} />
-        <BenefitsSection benefits={benefits} />
-      </main>
-      <Footer />
-    </>
+    <Hero image="guest-landing.png">
+      {/* Remove redundant headline */}
+      {/* Transparent clickable zones mapped to Visily boxes */}
+      <div className="absolute inset-x-0 top-[55vh] flex justify-center gap-8">
+        <a
+          href="/guest/roadie"
+          className="block w-[220px] h-[260px] bg-transparent cursor-pointer"
+          title="Road Cycling"
+        ></a>
+        <a
+          href="/guest/mountain"
+          className="block w-[220px] h-[260px] bg-transparent cursor-pointer"
+          title="Mountain Biking"
+        ></a>
+        <a
+          href="/guest/triathlon"
+          className="block w-[220px] h-[260px] bg-transparent cursor-pointer"
+          title="Triathlon Training"
+        ></a>
+        <a
+          href="/guest/track"
+          className="block w-[220px] h-[260px] bg-transparent cursor-pointer"
+          title="Track Cycling"
+        ></a>
+      </div>
+    </Hero>
   );
 }
