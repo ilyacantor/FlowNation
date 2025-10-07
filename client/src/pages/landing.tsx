@@ -7,7 +7,10 @@ export default function Landing() {
     <Hero image="guest-landing.png">
       {/* Remove redundant headline */}
       {/* Transparent clickable zones mapped to Visily boxes */}
-      <div className="absolute inset-x-0 top-[55vh] flex justify-center gap-8">
+      <div
+        className="absolute inset-x-0 flex justify-center gap-8"
+        style={{ top: "489.018px" }}
+      >
         <a
           href="/guest/roadie"
           className="block w-[220px] h-[260px] bg-transparent cursor-pointer"
