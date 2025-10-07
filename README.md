@@ -47,20 +47,22 @@ The application is configured to use PNG background images in full-width hero se
   <div className="hero-overlay" />
   {/* Content */}
 </div>
+```
 
 ---
 
 ## 🚀 Deployment & CI/CD (October 2025)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/<YOUR-NETLIFY-BADGE-ID>/deploy-status)](https://app.netlify.com/sites/<YOUR-NETLIFY-SITE-NAME>/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ee9fb89a-3492-42b8-bd03-11743c4980ab/deploy-status)](https://app.netlify.com/sites/flownation/deploys)
 
 **Deployment status:** ✅ Auto-deploys from the `main` branch via GitHub → Netlify.
 
 **Live site:**  
-👉 [https://<YOUR-NETLIFY-SITE-NAME>.netlify.app](https://<YOUR-NETLIFY-SITE-NAME>.netlify.app)
+👉 [https://flownation.netlify.app](https://flownation.netlify.app)
 
 ---
 
+```markdown
 ### 🧩 Environment Variables
 
 All real keys are stored in **Netlify → Site Settings → Environment Variables**.  
